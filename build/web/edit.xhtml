@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:fcore="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Edit</title>
+    </h:head>
+    <h:body>
+        <center>
+            <fcore:view>
+                <h:form>
+                    <h1> Edit Student</h1>
+                    <h:panelGrid border="0" cellpadding="20" cellspacing="20" columns="3">                        
+                        
+                        <h:outputLabel value="Student id" />
+                        <h:inputText value="#{studentManagedBean.id}" readonly="true" required="true" requiredMessage="Id is required" id="sid"/>
+                        <h:message for="sid" />
+                        
+                        <h:outputLabel value="Student name" />
+                        <h:inputText value="#{studentManagedBean.name}" required="true" requiredMessage="Name is required" id="sname"/>
+                        <h:message for="sname" />
+                        
+                        <h:outputLabel value="Student address" />
+                        <h:inputText value="#{studentManagedBean.address}" required="true" requiredMessage="Address is required" id="saddress"/>
+                        <h:message for="saddress" />
+                        
+                        <h:outputLabel value="Student age" />
+                        <h:inputText value="#{studentManagedBean.age}" required="true" requiredMessage="Age is required" id="sage"/>
+                        <h:message for="sage" />
+                        
+                        <h:commandLink value="Update" action="ListStudent" actionListener="#{studentManagedBean.update()}">
+                            <fcore:param name="id" value="#{studentManagedBean.id}"/>
+                        </h:commandLink>
+                    </h:panelGrid>
+                </h:form>
+            </fcore:view>
+        </center>
+    </h:body>
+</html>
+

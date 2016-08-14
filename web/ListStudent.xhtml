@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:fcore="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>List</title>
+    </h:head>
+    <h:body>
+        <center>
+            <fcore:view>
+                <h:form>
+                    <h:dataTable var="list" value="#{studentManagedBean.getAllStudents()}" border="1" cellpadding="2" cellspacing="2">
+                        <h:column>
+                            <fcore:facet name="header">Student Id</fcore:facet>
+                            <h:outputText value="#{list.id}" />
+                        </h:column>
+                        <h:column>
+                            <fcore:facet name="header">First Name</fcore:facet>
+                            <h:outputText value="#{list.name}" />
+                        </h:column>
+                        <h:column>
+                            <fcore:facet name="header">Last Name</fcore:facet>
+                            <h:outputText value="#{list.address}" />
+                        </h:column>
+                        <h:column>
+                            <fcore:facet name="header">Year</fcore:facet>
+                            <h:outputText value="#{list.age}" />
+                        </h:column>
+                        <h:column>
+                            <fcore:facet name="header">Edit</fcore:facet>
+                            <h:commandLink action="edit" actionListener="#{studentManagedBean.edit()}" value="Edit">
+                                <fcore:param name="id" value="#{list.id}" />
+                            </h:commandLink>
+                        </h:column>
+                        <h:column>
+                            <fcore:facet name="header">Delete</fcore:facet>
+                            <h:commandLink action="ListStudent"  actionListener="#{studentManagedBean.delete()}" value="Delete" onclick="return confirm('Are You Sure ?')">
+                                <fcore:param name="id" value="#{list.id}"/>
+                            </h:commandLink>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandLink value="AddStudent" action="add" />
+                </h:form>
+            </fcore:view>
+        </center>
+    </h:body>
+</html>
+
